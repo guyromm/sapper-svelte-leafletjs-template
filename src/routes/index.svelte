@@ -21,8 +21,7 @@
  let toolbar;
 
  onMount(async () => {
-     //l('Lstyle=',Lstyle);
-    // import L from 'leaflet';
+
       const mod = await import('leaflet');
       L = mod;
       toolbar = L.control({ position: 'topright' });
@@ -241,9 +240,6 @@
 </style>
 
 {#if L}
-<!--<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-     crossorigin=""/>-->
     <div class='mapContainer'>
 	<div class="map" style="height:100%;width:100%" use:mapAction />
     </div>

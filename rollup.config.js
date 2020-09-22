@@ -1,5 +1,4 @@
 import postcss from 'rollup-plugin-postcss';
-
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import commonjs from '@rollup/plugin-commonjs';
@@ -8,7 +7,6 @@ import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
-//import autoPreprocess from 'svelte-preprocess';
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -18,20 +16,6 @@ const onwarn = (warning, onwarn) =>
 	(warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
 	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
 	onwarn(warning);
-
-// const preprocessOptions = {
-//     postcss: {
-//         plugins: [
-//             require('postcss-import'),
-//             require('postcss-preset-env')({
-//                 stage: 0,
-//                 browsers: 'last 2 versions',
-//                 autoprefixer: { grid: true }
-//             }),
-//         ]
-//       }
-// }
-
 
 export default {
 	client: {
@@ -92,11 +76,9 @@ export default {
 		    }),
 
 		    svelte({
-			//preprocess:autoPreprocess(preprocessOptions),
  			generate: 'ssr',
 			hydratable: true,
-			dev,
-			emitCss:true
+			dev
 		    }),
 			resolve({
 				dedupe: ['svelte']
