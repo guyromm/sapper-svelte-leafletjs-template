@@ -52,5 +52,6 @@
 	<ul>
 	    <li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">raw leaflet</a></li>
 	    <li><a aria-current="{segment === 'svelte-leafletjs' ? 'page' : undefined}" href="svelte-leafletjs">svelte-leafletjs</a></li>
+	    <li><a aria-current="{segment === 'pickaplace' ? 'page' : undefined}" href="pickaplace">pickaplace</a></li>	    
 	</ul>
 </nav>
